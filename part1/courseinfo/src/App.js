@@ -1,6 +1,16 @@
-// U fokin wot m8
+// No-stack application dev for a stupid C programmer
+// import Counter from "./Counter.js";
+import {useState} from 'react';
+import Button from './Button.js';
 
 const App = () => {
+  // State hooks need to go up here because Meta KEKW
+  const [counter, setCounter] = useState(0);
+
+  const incrementCount = () => {setCounter(counter + 1)};
+  const decrementCount = () => {setCounter(counter - 1)};
+  const resetCount = () => {setCounter(0)};
+
   const course = {
     name: 'Half Stack application development',
     parts: [
@@ -24,6 +34,10 @@ const App = () => {
       <Header name={course.name}></Header>
       <Content parts={course.parts}/>
       <Total parts={course.parts}/>
+      <p>Stupid button count {counter}</p>
+      <Button e={incrementCount} text="+"/>
+      <Button e={decrementCount} text="-"/>
+      <Button e={resetCount} text="0"/>
     </>
   )
 }
@@ -41,7 +55,9 @@ const Header = ({name}) => {
   console.log("Header", name);
 
   return (
-    <h1>{name}</h1>
+    <header>
+      <h1>{name}</h1>
+    </header>
   )
 }
 
@@ -58,14 +74,14 @@ const Content = ({parts}) => {
 }
 
 const Part = ({name, exercises}) => {
-  console.log("We should have PARTS ffs", name, exercises)
+  console.log("We should have PARTS", name, exercises)
   return (
     <p>{name} {exercises}</p>
   )
 }
 
 /*
-
+// some MEE-MEES for now
 const App = () => {
   const props = {
     name: 'Richard Hendricks',
