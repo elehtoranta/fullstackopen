@@ -5,7 +5,7 @@ const App = () => {
   const [ bad, setBad ] = useState(0);
   const [ neutral, setNeutral ] = useState(0);
 
-  // TODO make an 'incrementer' function factory?
+  // TODO make an 'incrementer' function factory? Wth is currying?
   const addGood = () => setGood(good + 1);
   const addBad = () => setBad(bad + 1);
   const addNeutral = () => setNeutral(neutral + 1);
@@ -22,7 +22,6 @@ const App = () => {
 
   return (
     <>
-      {/* Componentize */}
       <div className="feedback-wrapper">
         <h1>give feedback</h1>
         <Button onClick={addGood} content="good"/>
