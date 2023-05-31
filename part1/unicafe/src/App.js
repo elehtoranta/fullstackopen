@@ -68,7 +68,7 @@ const Reviews = ({stats}) =>
   )
 
 // Passing an optional function to transform the data before rendering
-// Now only used to add a type suffix because brogrammer is lazy
+// Now only used to add a type suffix because brogrammer is lazy/bad
 const StatLine = ({type, data, fn = (data) => data}) =>
   <tr><td>{type}</td><td>{fn(data)}</td></tr>
 
