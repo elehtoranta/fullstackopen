@@ -11,15 +11,16 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when dianosing patients.',
     'The only way to go fast, is to go well.'
   ]
-  console.log(`Anecdotes: ${anecdotes.length}`)
+  // console.log(`Anecdotes: ${anecdotes.length}`)
 
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
 
-  console.log(`selected ${selected}, votes ${votes}, votes array length ${votes.length}`);
+  // console.log(`selected ${selected}, votes ${votes}, votes array length ${votes.length}`);
 
   function getRandomIndex() {
     let randomIndex;
+
     do {
       // Note to self: no off-by-one, since random() produces values from 0 to 1 *exclusive*.
       randomIndex = Math.floor(Math.random() * anecdotes.length);
@@ -28,7 +29,7 @@ const App = () => {
     setSelected(randomIndex);
   }
 
-  // NTS: pay attention to destructuring
+  // Apparently this can be done inline with head/modify/tail slices, but it's really not that pretty.
   function voteAnecdote() {
     const copy = [...votes];
     copy[selected] += 1;
@@ -38,6 +39,7 @@ const App = () => {
   return (
     <>
       <div>
+        <h1>Anecdote:</h1>
         <p>{anecdotes[selected]}</p>
         <p>Has {votes[selected]} votes</p>
       </div>
@@ -50,7 +52,6 @@ const App = () => {
           value="vote"
           onClick={voteAnecdote}
         />
-
       </div>
     </>
   )
