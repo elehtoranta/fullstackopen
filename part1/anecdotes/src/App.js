@@ -11,8 +11,13 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when dianosing patients.',
     'The only way to go fast, is to go well.'
   ]
+  console.log(`Anecdotes: ${anecdotes.length}`)
 
   const [selected, setSelected] = useState(0);
+  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
+
+  console.log(`selected ${selected}, votes ${votes}, votes array length ${votes.length}`);
+
   function getRandomIndex() {
     let randomIndex;
     do {
@@ -23,15 +28,30 @@ const App = () => {
     setSelected(randomIndex);
   }
 
+  // NTS: pay attention to destructuring
+  function voteAnecdote() {
+    const copy = [...votes];
+    copy[selected] += 1;
+    setVotes(copy);
+  }
+
   return (
     <>
       <div>
-        {anecdotes[selected]}
+        <p>{anecdotes[selected]}</p>
+        <p>Has {votes[selected]} votes</p>
       </div>
-      <Button
-        value="Next anecdote"
-        onClick={getRandomIndex}
-      />
+      <div className="controls">
+        <Button
+          value="Next anecdote"
+          onClick={getRandomIndex}
+        />
+        <Button
+          value="vote"
+          onClick={voteAnecdote}
+        />
+
+      </div>
     </>
   )
 }
