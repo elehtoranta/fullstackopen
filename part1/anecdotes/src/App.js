@@ -16,7 +16,7 @@ const App = () => {
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
 
-  // console.log(`selected ${selected}, votes ${votes}, votes array length ${votes.length}`);
+  console.log(`selected ${selected}, votes ${votes}, votes array length ${votes.length}`);
 
   function getRandomIndex() {
     let randomIndex;
@@ -36,22 +36,32 @@ const App = () => {
     setVotes(copy);
   }
 
+  /** @return String, the most voted anecdote */
+  function getMostVotedAnecdote() {
+    console.log((Math.max(...votes)));
+    return (anecdotes[votes.indexOf(Math.max(...votes))]);
+  }
+
   return (
     <>
-      <div>
-        <h1>Anecdote:</h1>
+      <div className="current-anecdote">
+        <h1>Anecdote of the day</h1>
         <p>{anecdotes[selected]}</p>
         <p>Has {votes[selected]} votes</p>
       </div>
       <div className="controls">
         <Button
+          value="Vote"
+          onClick={voteAnecdote}
+        />
+        <Button
           value="Next anecdote"
           onClick={getRandomIndex}
         />
-        <Button
-          value="vote"
-          onClick={voteAnecdote}
-        />
+      </div>
+      <div className="most-voted-anecdote">
+        <h1>Anecdote with most votes</h1>
+        <p>{getMostVotedAnecdote()}</p>
       </div>
     </>
   )
