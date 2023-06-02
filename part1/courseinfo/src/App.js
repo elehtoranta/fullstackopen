@@ -27,7 +27,6 @@ const App = () => {
 }
 
 const Total = ({parts}) => {
-  // console.log("In Total", parts);
   const sum = parts.map(parts => parts.exercises).reduce((a, b) => a + b);
 
   return (
@@ -36,16 +35,12 @@ const Total = ({parts}) => {
 }
 
 const Header = ({name}) => {
-  // console.log("Header", name);
-
   return (
     <h1>{name}</h1>
   )
 }
 
 const Content = ({parts}) => {
-  // console.log("Parts", parts);
-
   // Following map() works also with `name={parts.name} exercises={parts.exercises}`
   return (
     <div>
@@ -55,7 +50,6 @@ const Content = ({parts}) => {
 }
 
 const Part = ({name, exercises}) => {
-  // console.log("We should have PARTS ffs", name, exercises)
   return (
     <p>{name} {exercises}</p>
   )
