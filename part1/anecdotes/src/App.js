@@ -11,14 +11,10 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when dianosing patients.',
     'The only way to go fast, is to go well.'
   ]
-  // console.log(`Anecdotes: ${anecdotes.length}`)
 
   const [selected, setSelected] = useState(0);
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0));
   const [mostVotedIndex, setMostVotedIndex] = useState(-1);
-
-  // console.log(`selected ${selected}, votes ${votes}, votes array length ${votes.length}`);
-  console.log(`most voted`, mostVotedIndex);
 
   function getRandomIndex() {
     let randomIndex;
