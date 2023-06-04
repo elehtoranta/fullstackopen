@@ -16,6 +16,10 @@ tr {
     letter-spacing: 2px;
 }
 
+.course {
+    margin: 3em;
+}
+
 .content {
     display: block;
     width: 600px;
