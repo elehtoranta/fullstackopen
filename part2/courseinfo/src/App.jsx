@@ -32,25 +32,26 @@ const App = () => {
 }
 
 const Course = ({ course }) => {
-  const {name, id, parts} = {...course};
+  const {name, parts} = {...course};
 
   return (
     <>
-      <Header name={name}></Header>
+      <Header name={name}/>
       <Content parts={parts}/>
       <Total parts={parts}/>
     </>
   )
 }
 
-const Header = ({name}) => {
-  return (
-    <h1>{name}</h1>
-  )
-}
+const Header = ({ name }) => <h1>{name}</h1>
 
-const Content = ({parts}) =>
+const Content = ({ parts }) =>
   <div className="content">
+    <tr>
+      <th>Part name</th>
+      <th>Exercises</th>
+    </tr>
+
     {parts.map((part) => <Part {...part} key={part.id}/>)}
   </div>
 
@@ -59,11 +60,14 @@ const Total = ({ parts }) => {
   const sum = parts.map(parts => parts.exercises).reduce((a, b) => a + b);
 
   return (
-    <p>Number of exercises: {sum}</p>
+    <p><b>Total number of exercises: {sum}</b></p>
   )
 }
 
-const Part = ({name, exercises}) =>
-  <p>{name} {exercises}</p>
+const Part = ({ name, exercises}) =>
+  <tr>
+    <td>{name}</td>
+    <td>{exercises}</td>
+  </tr>
 
 export default App;
