@@ -1,13 +1,9 @@
-export const Course = ({ course }) => {
-  const {name, parts} = {...course};
-
-  return (
-    <div className='course'>
-      <CourseHeader name={name}/>
-      <Content parts={parts}/>
-    </div>
-  )
-}
+export const Course = ({ course }) =>
+  /* Don't know if this 'name construction' is good, but it makes DOM inspection clearer. */
+  <div className='course' name={`${course.id}: ${course.name}`}>
+    <CourseHeader name={course.name}/>
+    <Content parts={course.parts}/>
+  </div>
 
 const CourseHeader = ({ name }) =>
   <h2>{name}</h2>
@@ -30,18 +26,17 @@ const Content = ({ parts }) =>
     </table>
   </div>
 
-const Total = ({ parts }) => {
-  const sum = parts.map(parts => parts.exercises).reduce((a, b) => a + b);
-
-  return (
-    <tfoot>
-      <tr>
-        <td>Total</td>
-        <td>{sum}</td>
-      </tr>
-    </tfoot>
-  )
-}
+const Total = ({ parts }) =>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>
+        {parts
+          .map(parts => parts.exercises)
+          .reduce((sum, ex) => sum + ex)}
+      </td>
+    </tr>
+  </tfoot>
 
 const Part = ({ name, exercises}) =>
   <tr>
