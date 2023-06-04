@@ -42,7 +42,8 @@ const Course = ({ course }) => {
   )
 }
 
-const Header = ({ name }) => <h1>{name}</h1>
+const Header = ({ name }) =>
+  <h1>{name}</h1>
 
 const Content = ({ parts }) =>
   <div className="content">
@@ -61,7 +62,6 @@ const Content = ({ parts }) =>
       <Total parts={parts}/>
     </table>
   </div>
-
 
 const Total = ({ parts }) => {
   const sum = parts.map(parts => parts.exercises).reduce((a, b) => a + b);

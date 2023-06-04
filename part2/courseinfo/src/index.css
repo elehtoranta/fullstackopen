@@ -52,7 +52,7 @@ tfoot tr td{
 }
 
 /* Rounded corners for a table */
-th:first-child { border-top-left-radius: 10px; }
+th:first-child { border-top-left-radius: 10px; border-right: none; }
 th:last-child { border-top-right-radius: 10px; }
-tfoot tr td:first-child {border-bottom-left-radius: 10px;}
-tfoot tr td:last-child {border-bottom-right-radius: 10px;}
+tfoot tr td:first-child { border-bottom-left-radius: 10px; border-right: none; }
+tfoot tr td:last-child { border-bottom-right-radius: 10px; }
