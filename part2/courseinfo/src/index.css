@@ -1,0 +1,70 @@
+html {
+    font-size: 16px;
+}
+
+h1,
+h2 {
+    padding: 0;
+    margin: 0.5em;
+    text-align: center;
+}
+
+td,
+th,
+tr {
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+    letter-spacing: 2px;
+}
+
+.courses-container {
+    display: block;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.course {
+    margin: 1em;
+    padding: 1em;
+}
+
+.content {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+thead,
+tfoot {
+    font-weight: bold;
+}
+
+thead th:nth-child(1) {
+    width: 80%;
+}
+
+thead th:nth-child(2) {
+    width: 20%;
+}
+
+th,
+tfoot tr td{
+    border: 1px solid black;
+    background-color: lightcoral;
+}
+
+/* Rounded corners for a table */
+th:first-child { border-top-left-radius: 10px; border-right: none; }
+th:last-child { border-top-right-radius: 10px; }
+tfoot tr td:first-child { border-bottom-left-radius: 10px; border-right: none; }
+tfoot tr td:last-child { border-bottom-right-radius: 10px; }

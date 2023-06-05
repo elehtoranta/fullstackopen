@@ -1,3 +1,9 @@
 # Courseinfo - Part 1.1-5
 
-Created with CRA. Run project: `npm start dev`
+## Usage:
+
+Clone/pull & run:
+```bash
+npm install
+npm start
+```
