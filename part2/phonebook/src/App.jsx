@@ -11,24 +11,30 @@ const App = () => {
   const [newName, setNewName] = useState('')
 
   const handleNameChange = (e) => {
-    console.log("Name change target", e.target.value);
+    console.log("Name change target", e.target.value)
     setNewName(e.target.value)
   }
 
   const addPerson = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!newName) {
       alert("Please enter a name")
       return;
     }
 
-    console.log("Adding a person");
-    const newPerson = {
-      name: newName.trim()
+    const cleanedName = newName.trim()
+    if (persons.map(person => person.name).includes(cleanedName)) {
+      alert(`${cleanedName} is already added to phonebook`)
+      return;
     }
-    setPersons(persons.concat(newPerson));
-    setNewName('');
+
+    console.log("Adding a person")
+    const newPerson = {
+      name: cleanedName
+    }
+    setPersons(persons.concat(newPerson))
+    setNewName('') // Reset
   };
 
   return (
