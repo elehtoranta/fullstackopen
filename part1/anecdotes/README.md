@@ -1,3 +1,9 @@
 # Anectdotes - Part 1.12-14
 
-Created with CRA. Run with `npm start`.
+## Usage:
+
+Clone/pull & run:
+```bash
+npm install
+npm start
+```
