@@ -1,0 +1,9 @@
+table {
+    min-width: 300px;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+thead th {
+    width: 50%;
+}
