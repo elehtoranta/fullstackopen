@@ -1,15 +1,49 @@
-#contact-inputs-container {
+.new-contact-container{
+    border: dashed 2px gray;
+    padding: 2em;
+    border-radius: 7px;
+}
+
+.contact-inputs-container > * {
+    margin: 5px;
+}
+.contact-inputs-container > input {
+    width: auto;
+}
+
+.input-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-#contact-inputs-container > * {
-    margin: 5px;
+    align-items: center;
+    margin: 10px auto;
 }
 
 input {
+    padding: 7px;
+    border: 2px solid transparent;
+    border-radius: 9000px;
     text-align: center;
+    transition: border 0.25s, outline 0.25s ease-in, margin 0.25s;
 }
+input:focus {
+    border: solid 2px #646cff;
+    outline: 0.5rem solid ;
+    margin: 0.5rem;
+}
+input:user-valid {
+    border: solid 2px green;
+}
+
+/*
+* // (ugly) validitity display
+* input:invalid {
+*     border-color: coral;
+* }
+* input:valid {
+*     border-color: lightgreen;
+* }
+*/
 
 button {
     margin: 10px;

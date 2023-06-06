@@ -16,25 +16,33 @@ const NewContactForm = ({ persons, setPersons }) => {
   const addPerson = (e) => {
     e.preventDefault()
 
+    // Validation
     if (!newName || !newNumber) {
       alert(
         `Please enter all details.\n`
-        + `You've entered:\n`
-        + `Name: ${newName ? newName : "None given"}\n`
-        + `Number: ${newNumber ? newNumber : "None given"}`
+          + `You've entered:\n`
+          + `Name: ${newName ? newName : "None given"}\n`
+          + `Number: ${newNumber ? newNumber : "None given"}`
       )
       return;
     }
 
     const formattedName = newName.trim()
-    if (persons.map(person => person.name).includes(formattedName)) {
-      alert(`${formattedName} is already added to phonebook`)
-      return;
-    }
-
     const formattedNumber = newNumber
     .split(" ")
     .reduce((number, substring) => number + substring)
+
+    // TODO: duplication and verbose, figure out a neater solution
+    if (persons.map(person => person.name).includes(formattedName)) {
+      alert(`Contact with the name ${formattedName} is already added to the phonebook`)
+      return;
+    }
+
+    if (persons.map(person => person.number).includes(formattedNumber)) {
+      alert(`Contact with number ${formattedNumber} is already added to the phonebook`)
+      return;
+    }
+
 
     console.log("Adding a person")
     const newPerson = {
@@ -51,31 +59,36 @@ const NewContactForm = ({ persons, setPersons }) => {
     <div className="new-contact-container">
       <h2>Add a contact</h2>
       <form>
-        <div id="contact-inputs-container">
-          <label htmlFor="name">Name: </label>
-          <input
-            id="name"
-            type="text"
-            size="20"
-            value={newName}
-            onChange={handlePersonDataChange('name')}
-            required
-          />
-          <label htmlFor="number">Number: </label>
-          <input
-            id="number"
-            type="tel"
-            size="10"
-            minLength="12"
-            maxLength="12"
-            placeholder="XXX XXXX XXX"
-            value={newNumber}
-            onChange={handlePersonDataChange('number')}
-            required
-          />
+        <div className="contact-inputs-container">
+          <div className="input-container">
+            <label htmlFor="name">Full name: </label>
+            <input
+              id="user-name"
+              type="text"
+              size="20"
+              value={newName}
+              onChange={handlePersonDataChange('name')}
+              required
+            />
+
+          </div>
+          <div className="input-container">
+            <label htmlFor="number">Phone number: </label>
+            <input
+              id="user-number"
+              type="tel"
+              size="10"
+              minLength="12"
+              maxLength="12"
+              placeholder="XXX XXXX XXX"
+              value={newNumber}
+              onChange={handlePersonDataChange('number')}
+              required
+            />
+          </div>
         </div>
         <div>
-          <button type="submit" onClick={addPerson}>Add</button>
+          <button type="submit" onClick={addPerson}>Submit my details</button>
         </div>
       </form>
     </div>
