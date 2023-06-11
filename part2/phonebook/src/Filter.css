@@ -1,0 +1,16 @@
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    border: none;
+}
+input:focus {
+    border: none;
+}
+input:valid {
+    border: none;
+}

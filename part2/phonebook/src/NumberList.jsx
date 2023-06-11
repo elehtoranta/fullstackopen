@@ -1,21 +1,7 @@
-import { useState } from 'react'
-
 import './NumberList.css'
 
-const NumberList = ({ persons }) => {
-  const [search, setSearch] = useState('')
-
-  const handleSearch = (e) => setSearch(e.target.value.toLowerCase());
-
-  return (
+const NumberList = ({ persons, search }) =>
     <div className="numberlist-container">
-      <h2>Numbers</h2>
-        <label htmlFor='search-contact-name'>Search a name</label>
-      <input
-        id='search-contact-name'
-        type='text'
-        onChange={handleSearch}
-      />
       <table>
         <thead>
           <tr>
@@ -32,9 +18,6 @@ const NumberList = ({ persons }) => {
         </tbody>
       </table>
     </div>
-  )
-
-}
 
 const Number = ({ person }) =>
   <tr>

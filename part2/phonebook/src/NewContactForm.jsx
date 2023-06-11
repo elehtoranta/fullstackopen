@@ -1,18 +1,15 @@
-import { useState } from 'react'
-
 import './NewContactForm.css'
 
-const NewContactForm = ({ persons, setPersons }) => {
-  const [newName, setNewName] = useState('')
-  const [newNumber, setNewNumber] = useState('')
-
-  // Yeah idk about this, this can't be the 'right way'
-  const handlePersonDataChange = handler => e => {
-    handler === 'name' ? setNewName(e.target.value)
-    : handler === 'number' ? setNewNumber(e.target.value)
-    : console.log(`Error handling data change\nTarget value: ${e.target.value}`)
-  }
-
+// persons: [{name, number}, ...]
+const NewContactForm = ({
+  persons,
+  setPersons,
+  newName,
+  newNumber,
+  handlePersonDataChange,
+  setNewName,
+  setNewNumber
+}) => {
   const addPerson = (e) => {
     e.preventDefault()
 
