@@ -37,12 +37,11 @@ const App = () => {
         setNewName={setNewName}
         setNewNumber={setNewNumber}
       />
-      <h2>New contact</h2>
+      <h2>Numbers</h2>
       <Filter
         persons={persons}
         handleFilter={handleFilter}
       />
-      <h2>Numbers</h2>
       <NumberList
         persons={persons}
         search={search}

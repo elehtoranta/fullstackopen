@@ -75,9 +75,9 @@ const NewContactForm = ({
               id="user-number"
               type="tel"
               size="10"
-              minLength="12"
-              maxLength="12"
-              placeholder="XXX XXXX XXX"
+              minLength="10"
+              maxLength="10"
+              placeholder="XXXXXXXXXX"
               value={newNumber}
               onChange={handlePersonDataChange('number')}
               required
