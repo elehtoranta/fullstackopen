@@ -25,6 +25,4 @@ const Number = ({ person }) =>
     <td>{person.number}</td>
   </tr>
 
-
-
 export default NumberList;

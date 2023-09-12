@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 import './App.css'
 
@@ -7,13 +8,20 @@ import NewContactForm from './NewContactForm.jsx'
 import Filter from './Filter.jsx'
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', number: "0401234567" },
-    { name: 'Ada Lovelace', number: "0466682867"}
-  ])
+  const [persons, setPersons] = useState([])
   const [search, setSearch] = useState('')
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
+
+  // Read the mock 'database'
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/persons')
+      .then(response => {
+        console.log("response data", response.data)
+        setPersons(response.data)
+      })
+  }, [])
 
   const handleFilter = (e) => setSearch(e.target.value.toLowerCase());
 
@@ -23,7 +31,6 @@ const App = () => {
     : handler === 'number' ? setNewNumber(e.target.value)
     : console.log(`Error handling data change\nTarget value: ${e.target.value}`)
   }
-
 
   return (
     <div>

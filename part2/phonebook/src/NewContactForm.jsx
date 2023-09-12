@@ -26,8 +26,8 @@ const NewContactForm = ({
 
     const formattedName = newName.trim()
     const formattedNumber = newNumber
-    .split(" ")
-    .reduce((number, substring) => number + substring)
+      .split(" ")
+      .reduce((number, substring) => number + substring)
 
     // TODO: duplication and verbose, figure out a neater solution
     if (persons.map(person => person.name).includes(formattedName)) {
